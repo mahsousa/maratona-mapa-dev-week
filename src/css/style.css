@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Public+Sans:wght@300;400;800&display=swap');
+
+body{
+    font-family: 'Public Sans', sans-serif;
+}
+
+/*o asterisco serve para estilizar todos
+os elementos html da página*/ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+}
+
+img{
+    max-width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none; /*retirar os pontos da lista*/
+}
+
+html{
+    scroll-behavior: smooth; /* rolamento da página mais suave*/
+}
+
+/*CABEÇALHO*/
+.logo .imagemLogo{ /*Esta sendo aplicado no menu e no rodapé*/
+    width: 100px;
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0; /* 25px para cima e para baixo e 0 para a esquerda e para a direita */
+    max-width: 1170px; /*Não ultrapassar o tamanho de uma tela de notebook*/
+    margin: 0 auto; /*centralizar o conteudo*/
+    flex-wrap: wrap; /*quebrar no responsivo*/
+}
+
+@media(max-width: 624px){
+    .cabecalho{
+        justify-content: center;
+    }
+
+    .cabecalho .logo{
+        margin-bottom: 30px;
+    }
+
+    .cabecalho .menu .item a {
+        font-size: calc(0.6em + 1vw);
+    }
+}
+
+.logo{ /*Esta sendo aplicado no menu e no rodapé*/
+    display: flex;
+    align-items: center;
+    text-transform: uppercase; /*aumentar a fonte em caixa alta*/
+}
+
+.logo .titulo{ /*Esta sendo aplicado no menu e no rodapé*/
+    margin-left: 7px;
+    font-size: 17px;
+    transition: 0.3s ease-in-out;
+    font-weight: 800;
+}
+
+.cabecalho .titulo:hover{
+    color: #1ed760;
+}
+
+.cabecalho .navegacao .menu{
+    display: flex;
+}
+
+.cabecalho .navegacao .menu .item{
+    margin: 10px;
+}
+.cabecalho .navegacao .menu .item a{
+    padding: 15px;
+}
+.cabecalho .navegacao .menu .item a:hover{
+    background-color:#1ed760;
+    color: white;
+}
+/*CABEÇALHO*/
+/*BANNER*/
+.conteudo-principal .paineis{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    position: relative; /*posicionar um elemento dentro da div*/
+}
+
+@media(max-width: 900px){
+    .conteudo-principal .paineis{
+        height: 500px;
+    }
+}
+
+.conteudo-principal .paineis .img-banner{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-width: 100%;
+    height: 100%;
+    position: absolute; /*O posicionamento absoluto deve estar dentro de uma div relative*/
+    z-index: -1;
+    filter: brightness(70%);    /*Brilho da imagem*/
+    opacity: 0; /*Esconder as imagens*/
+    transition: 0.3s ease-in-out;
+}
+
+
+.conteudo-principal .paineis .projeto1{ /*Banner 1*/
+    background-image: url('../img/painel1.jpg');
+}
+
+.conteudo-principal .paineis .projeto2{ /*Banner 2*/
+    background-image: url('../img/painel2.jpg');
+}
+
+.conteudo-principal .paineis .projeto3{ /*Banner 3*/
+    background-image: url('../img/painel3.jpg');
+}
+
+.conteudo-principal .paineis .img-banner.mostrar{
+    opacity: 1;
+}
+
+.conteudo-principal .paineis .titulo-carrossel{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: calc(1em + 1vw); /*Função para calcular o tamanho da font de acordo com o tamanho da tela*/
+}
+
+.conteudo-principal .paineis .seta{
+    background-image: url('../img/seta.png');
+    background-repeat: no-repeat; /*Não repetir as imagens*/
+    background-position: center;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    text-indent: 100%; /*Esconder um texto de um elementor (Voltar/avançar)*/
+    overflow: hidden; /*Esconder um texto de um elementor (Voltar/avançar)*/
+}
+
+.conteudo-principal .paineis .seta.btn-voltar{
+    left: 20px;
+    transform: rotateY(180deg);
+}
+
+.conteudo-principal .paineis .seta.btn-avancar{
+    right: 20px;    
+}
+/*BANNER*/
+
+/*QUEM SOMOS*/
+
+.quem-somos{
+    background-color: #2941AB;
+}
+
+.quem-somos .conteudo{
+    display: flex;
+    align-items: center;
+    padding: 0 10%; /* 0 para cima e abaixo e 10% para a direita e para a esquerda*/
+}
+
+.quem-somos .conteudo .informacoes{
+    width: 40%;
+}
+
+.quem-somos .conteudo .imagem{
+    width: 60%;
+}
+
+.quem-somos .conteudo .informacoes .titulo{
+    font-size: 50px;
+    color: #1ED760;
+    margin-bottom: 20px;
+}
+
+.quem-somos .conteudo .informacoes .texto-quem-somos{
+    font-size: 20px;
+    line-height: 1.5; /*Altura da linha*/
+    color: #fff;
+    font-weight: 400; /*Peso da fonte*/
+}
+
+@media(max-width: 1200px){ /*Media para dispositivos IGUAIS/MENORES que 1200px*/
+    .quem-somos .conteudo{
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 30px;
+    }
+
+    .quem-somos .conteudo .imagem{
+        display: none; /*Esconder a imagem*/
+    }
+
+    .quem-somos .conteudo .informacoes{
+        width: 100%;
+    }
+}
+/*QUEM SOMOS*/
+/*RODAPÉ*/
+
+.rodape {
+    padding: 80px 0 20px 0;    /*80px para cima e 20 para baixo */ /*Padding é no sentido horario*/
+}
+
+.rodape .navegacao{
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /*Espaço entre os elementos*/
+    align-items: center;
+    flex-wrap: wrap; /*Quebrar abaixo no responsivo*/
+}
+
+.rodape .redes-sociais{
+    display: flex;
+}
+
+.rodape .redes-sociais a{
+    display: flex;
+    justify-content: center;
+    margin: 0 10px;
+    font-size: 30px;
+    border: 2px solid #111; /*Borda ao redor do icone*/
+    border-radius: 50%; /*Borda circular ao redor do icone*/
+    padding: 15px; /*Espaçamento interno do icone*/
+    width: 65px;
+    transition: 0.3s ease-in-out;
+}
+
+.rodape .redes-sociais a:hover{
+    background-color: #1ED760; 
+}
+
+.rodape .navegacao .logo .imagem{
+    width: 100px;
+}
+
+.rodape .copyright{ /*Conteudo centralizado sem usar DIV*/
+    margin-top: 70px;
+    text-align: center;
+}
+
+@media(max-width: 940px){ /*Media para dispositivos maiores que 940px*/
+    .rodape .navegacao{
+        justify-content: center; /*Justificar o conteudo do rodape e manter centralizado*/
+    }
+
+    .rodape .navegacao .logo{
+        margin-bottom: 30px;        
+    }
+
+    .rodape .navegacao .logo,
+    .rodape .navegacao .redes-sociais{
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/*RODAPÉ*/
